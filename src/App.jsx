@@ -6,6 +6,7 @@ import Events from "./Components/Events";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import EventDetails from "./Components/EventDetails";
+import AddEvent from "./Components/AddEvent";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,8 +16,14 @@ function App() {
     <NavBar/>
       <Routes >
         <Route path="/events">
-        <Route index element={<Events/>} /></Route>
-        <Route path="details/:nom" element={<EventDetails/>} />
+        <Route index element={<Events/>} />
+        <Route path="Add" element={<AddEvent/>} />
+        <Route path="details/:id" element={<EventDetails/>} />
+   
+        </Route>
+        {/* <Route path="details/:nom" element={<EventDetails/>} /> */}
+       
+
         <Route path="*" element={<><p>Not found</p></>} />
       </Routes>
      
