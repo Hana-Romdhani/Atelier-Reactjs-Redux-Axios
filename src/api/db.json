@@ -1,22 +1,42 @@
 {
   "events": [
     {
-      "id": "44e6",
-      "name": "hello",
-      "description": "description",
+      "id": "1",
+      "name": "hello23344345678",
+      "description": "description4456783456789",
       "img": "event2.jpg",
-      "price": "23",
-      "nbTickets": "3",
+      "price": "233334567890",
+      "nbTickets": "33456789",
       "nbParticipants": 0,
       "like": false
     },
     {
-      "id": "764c",
+      "id": "2",
       "name": "test",
       "description": "test",
       "img": "event3.jpg",
       "price": "340",
       "nbTickets": "5",
+      "nbParticipants": 0,
+      "like": false
+    },
+    {
+      "id": "b291",
+      "name": "Hana",
+      "description": "h",
+      "img": "event3.jpg",
+      "price": "4",
+      "nbTickets": "3",
+      "nbParticipants": 0,
+      "like": false
+    },
+    {
+      "id": "c64e",
+      "name": "Programming  skills",
+      "description": "hello , the event is about  programming skills  , it will be funny .  it will be 23 dt for student  in another university and free for the student of esprit .  ",
+      "img": "event3.jpg",
+      "price": "23",
+      "nbTickets": "120",
       "nbParticipants": 0,
       "like": false
     }

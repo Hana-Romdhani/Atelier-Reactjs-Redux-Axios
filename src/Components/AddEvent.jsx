@@ -1,12 +1,12 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { addEvent } from "../service/api";
-import { useNavigate } from "react-router-dom";
+import { addEvent, editEvent, getallEvents } from "../service/api";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function AddEvent() {
-
-  
+  const { id } = useParams();
+ 
     const [EventItem,setEventItem ]=useState({name:"",
     description:"",
     img:"",
@@ -16,6 +16,21 @@ export default function AddEvent() {
     like:false
 })
 
+useEffect(() => {
+  // Si vous êtes en mode de mise à jour, initialisez le state avec les données de l'événement à mettre à jour
+  if (id!=null) {
+    const fetchEvent = async () => {
+      try {
+        const response = await getallEvents(id);
+        setEventItem(response.data); // Initialisez le state EventItem avec les données de l'événement
+      } catch (error) {
+        console.error("Error fetching event:", error);
+      }
+    };
+    fetchEvent();
+  }
+  
+}, [id]);
 
 
 const navigate= useNavigate()
@@ -31,12 +46,24 @@ const navigate= useNavigate()
     })
 
  }
-   const AddEvents=async()=>{
-   const resultat= await addEvent(EventItem);
-      if(resultat.status==201)
-      navigate('/events')
-   } 
+ 
+ 
 
+//    const AddEvents=async()=>{
+ 
+//  const resultat=await addEvent(EventItem);
+ 
+//    if(resultat.status==201)
+//       navigate('/events')
+//    } 
+const AddEvents = async () => {
+  if (id!=null) {
+    await editEvent(id,EventItem);
+  } else {
+    await addEvent(EventItem);
+  }
+  navigate('/events');
+};
 
 
   return (
@@ -95,9 +122,9 @@ const navigate= useNavigate()
           />
         </Form.Group>
         <Button variant="primary" onClick={AddEvents} >
-          Add an Event
+        {id!=null ? 'Update Event' : 'Add  Event'}
         </Button>
-        <Button  variant="secondary" >
+        <Button  variant="secondary"  onClick={()=> {navigate('/events')}}>
           Cancel
         </Button>
       </Form>

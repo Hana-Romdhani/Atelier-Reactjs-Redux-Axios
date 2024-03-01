@@ -41,6 +41,7 @@ export default function Events() {
       setListEvents(listEvent.filter((e) => e.id != id))
       console.log(listEvent)
    }
+    
 
    return <>
       <Row>
@@ -49,7 +50,7 @@ export default function Events() {
                Welcome to our events  </Alert>
          }
          {listEvent?.map((element, index) => {
-            return <Event key={index} e={element} functionalert={modificationalert} deleteevent={deleteEvents} />
+            return <Event key={index} e={element} functionalert={modificationalert} deleteevent={deleteEvents}  />
 
          })}
          {
