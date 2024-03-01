@@ -17,12 +17,11 @@ export default function AddEvent() {
 })
 
 useEffect(() => {
-  // Si vous êtes en mode de mise à jour, initialisez le state avec les données de l'événement à mettre à jour
   if (id!=null) {
     const fetchEvent = async () => {
       try {
         const response = await getallEvents(id);
-        setEventItem(response.data); // Initialisez le state EventItem avec les données de l'événement
+        setEventItem(response.data); 
       } catch (error) {
         console.error("Error fetching event:", error);
       }
