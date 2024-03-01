@@ -5,6 +5,8 @@ import { addEvent } from "../service/api";
 import { useNavigate } from "react-router-dom";
 
 export default function AddEvent() {
+
+  
     const [EventItem,setEventItem ]=useState({name:"",
     description:"",
     img:"",
@@ -13,6 +15,9 @@ export default function AddEvent() {
     nbParticipants:0,
     like:false
 })
+
+
+
 const navigate= useNavigate()
  const OnInputChange=(e)=>{
     setEventItem({

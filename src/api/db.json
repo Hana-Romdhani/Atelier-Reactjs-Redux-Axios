@@ -1,3 +1,24 @@
 {
-  "events": []
+  "events": [
+    {
+      "id": "44e6",
+      "name": "hello",
+      "description": "description",
+      "img": "event2.jpg",
+      "price": "23",
+      "nbTickets": "3",
+      "nbParticipants": 0,
+      "like": false
+    },
+    {
+      "id": "764c",
+      "name": "test",
+      "description": "test",
+      "img": "event3.jpg",
+      "price": "340",
+      "nbTickets": "5",
+      "nbParticipants": 0,
+      "like": false
+    }
+  ]
 }
