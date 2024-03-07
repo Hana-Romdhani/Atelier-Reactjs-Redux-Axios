@@ -16,17 +16,6 @@ export default function Event(props) {
         nbTickets: previousstate.nbTickets - 1
       }))
   }
-  const navigate = useNavigate();
-  const updateEvent = () => {
-   // Appel de la fonction de mise à jour passée en tant que prop
-    // Ajoutez ici votre logique de mise à jour de l'événement
-    // Par exemple, vous pouvez envoyer une requête au serveur pour mettre à jour l'événement
-
-    // Une fois que la mise à jour est terminée, vous pouvez naviguer vers une autre page
-    navigate('/events'); // Par exemple, naviguer vers la page des événements
-  };
-
-
 
   const functionlike = () => {
     SetEvents((previousstate) => ({

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -7,17 +7,23 @@ import { Route, Routes } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import EventDetails from "./Components/EventDetails";
 import AddEvent from "./Components/AddEvent";
-import EditEvents from "./Components/EditEvents";
+import { useDispatch } from "react-redux";
+import { fetchEvents } from "./redux/slices/eventSlice";
 
-function App() {
+function App({ loader }) {
   const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchEvents());
+  }, [dispatch]);
 
   return (
     <>
     <NavBar/>
       <Routes >
         <Route path="/events">
-        <Route index element={<Events/>} />
+        <Route index element={<Events   loader={loader} />} />
         <Route path="Add" element={<AddEvent/>} />
         <Route path="details/:id" element={<EventDetails/>} />
         <Route path="update/:id" element={<AddEvent/>}  />
